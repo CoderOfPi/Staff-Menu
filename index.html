@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Staff Menu Reference</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#9b2c2c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="The Menu">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0b0b; --surface: #130e0e; --card: #1a0f0f;
+    --red: #9b2c2c; --red-light: #c0392b; --red-dim: #5a1a1a;
+    --cream: #f0e8e8; --white-active: #f5f0f0; --muted: #8a6f6f;
+    --border: rgba(155,44,44,0.18); --border-bright: rgba(155,44,44,0.45);
+    --panel-width: 440px;
+    --glow1: rgba(155,44,44,.07); --glow2: rgba(155,44,44,.05);
+  }
+  /* ── THEMES ── */
+  body.theme-navy {
+    --bg:#070d14; --surface:#0b1520; --card:#0f1c2a;
+    --red:#1e5f8a; --red-light:#2980b9; --red-dim:#0d3352;
+    --cream:#ddeeff; --white-active:#eaf4ff; --muted:#5a8aaa;
+    --border:rgba(30,95,138,.2); --border-bright:rgba(30,95,138,.5);
+    --glow1:rgba(30,95,138,.07); --glow2:rgba(30,95,138,.05);
+  }
+  body.theme-forest {
+    --bg:#080d08; --surface:#0d140d; --card:#111a11;
+    --red:#2d6e3a; --red-light:#3a9150; --red-dim:#163d20;
+    --cream:#d8edd8; --white-active:#eaf5ea; --muted:#5a8a62;
+    --border:rgba(45,110,58,.2); --border-bright:rgba(45,110,58,.5);
+    --glow1:rgba(45,110,58,.07); --glow2:rgba(45,110,58,.05);
+  }
+  body.theme-void {
+    --bg:#000000; --surface:#080808; --card:#101010;
+    --red:#444444; --red-light:#666666; --red-dim:#222222;
+    --cream:#e0e0e0; --white-active:#f0f0f0; --muted:#666666;
+    --border:rgba(120,120,120,.15); --border-bright:rgba(180,180,180,.35);
+    --glow1:rgba(120,120,120,.04); --glow2:rgba(120,120,120,.03);
+  }
+  body.theme-amber {
+    --bg:#0d0900; --surface:#140e00; --card:#1c1200;
+    --red:#a06800; --red-light:#c98200; --red-dim:#5a3a00;
+    --cream:#f5e8c0; --white-active:#fff5d6; --muted:#9a7a3a;
+    --border:rgba(160,104,0,.2); --border-bright:rgba(160,104,0,.5);
+    --glow1:rgba(160,104,0,.07); --glow2:rgba(160,104,0,.05);
+  }
+  body.theme-vintage {
+    --bg:#f5f0e8; --surface:#ede5d8; --card:#e8ddc8;
+    --red:#6b2030; --red-light:#8b2a3e; --red-dim:#c4a882;
+    --cream:#2a1a10; --white-active:#1a0e08; --muted:#7a6a58;
+    --border:rgba(107,32,48,.15); --border-bright:rgba(107,32,48,.4);
+    --glow1:rgba(107,32,48,.05); --glow2:rgba(107,32,48,.03);
+  }
+  body.theme-rose {
+    --bg:#0e0608; --surface:#160a0e; --card:#1c0d12;
+    --red:#8b2a4a; --red-light:#b03560; --red-dim:#4a1228;
+    --cream:#f5dde5; --white-active:#fdeef3; --muted:#9a6070;
+    --border:rgba(139,42,74,.2); --border-bright:rgba(139,42,74,.5);
+    --glow1:rgba(139,42,74,.07); --glow2:rgba(139,42,74,.05);
+  }
+  body.theme-purple {
+    --bg:#080610; --surface:#0e0b1a; --card:#130f22;
+    --red:#5b2d8a; --red-light:#7b3db5; --red-dim:#2e1650;
+    --cream:#e8dcf5; --white-active:#f3ecfd; --muted:#7a6095;
+    --border:rgba(91,45,138,.2); --border-bright:rgba(91,45,138,.5);
+    --glow1:rgba(91,45,138,.07); --glow2:rgba(91,45,138,.05);
+  }
+  body.theme-ember {
+    --bg:#0e0700; --surface:#180e00; --card:#221400;
+    --red:#c45a00; --red-light:#e07020; --red-dim:#7a3500;
+    --cream:#f5e0c0; --white-active:#fff0d5; --muted:#a07040;
+    --border:rgba(196,90,0,.2); --border-bright:rgba(196,90,0,.5);
+    --glow1:rgba(196,90,0,.07); --glow2:rgba(196,90,0,.05);
+  }
+  body.theme-storm {
+    --bg:#060a10; --surface:#0a1018; --card:#0f1620;
+    --red:#2a5080; --red-light:#3a70aa; --red-dim:#142840;
+    --cream:#ccddef; --white-active:#e0eeff; --muted:#507090;
+    --border:rgba(42,80,128,.2); --border-bright:rgba(42,80,128,.5);
+    --glow1:rgba(42,80,128,.07); --glow2:rgba(42,80,128,.05);
+  }
+  body.theme-blush {
+    --bg:#f7f0f2; --surface:#ede2e6; --card:#e2d4d8;
+    --red:#8b3a5a; --red-light:#b04a74; --red-dim:#c4a0b0;
+    --cream:#2a1020; --white-active:#1a0810; --muted:#806070;
+    --border:rgba(139,58,90,.15); --border-bright:rgba(139,58,90,.4);
+    --glow1:rgba(139,58,90,.05); --glow2:rgba(139,58,90,.03);
+  }
+  body.theme-teal {
+    --bg:#040e0e; --surface:#071616; --card:#0c1e1e;
+    --red:#1a7070; --red-light:#259090; --red-dim:#0a3838;
+    --cream:#c8eeee; --white-active:#dff8f8; --muted:#507878;
+    --border:rgba(26,112,112,.2); --border-bright:rgba(26,112,112,.5);
+    --glow1:rgba(26,112,112,.07); --glow2:rgba(26,112,112,.05);
+  }
+
+  /* Light theme allergen badge brightness boost */
+  body.theme-vintage .a-badge, body.theme-blush .a-badge { filter:saturate(1.4) brightness(0.75); }
+  body.theme-vintage .panel-allergen, body.theme-blush .panel-allergen { filter:saturate(1.3) brightness(0.8); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--cream); font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh; overflow-x:hidden; transition:background .4s ease, color .4s ease; }
+  body::before { content:''; position:fixed; inset:0; background:radial-gradient(ellipse 60% 50% at 20% 20%,var(--glow1) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 80% 80%,var(--glow2) 0%,transparent 60%); pointer-events:none; z-index:0; }
+  .container { max-width:1100px; margin:0 auto; padding:48px 24px; position:relative; z-index:1; transition:margin-right .35s ease; }
+  .container.panel-open { margin-right:var(--panel-width); }
+
+  /* Header */
+  .header { text-align:center; margin-bottom:48px; animation:fadeDown .8s ease both; }
+  .header-eyebrow { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.4em; color:var(--red-dim); text-transform:uppercase; margin-bottom:16px; }
+  .header h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,6vw,4.5rem); font-weight:300; color:var(--white-active); letter-spacing:.05em; line-height:1; }
+  .header-rule { display:flex; align-items:center; gap:16px; margin:20px auto 0; max-width:300px; }
+  .header-rule::before,.header-rule::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,var(--red-dim)); }
+  .header-rule::after { background:linear-gradient(to left,transparent,var(--red-dim)); }
+  .header-rule span { color:var(--red); font-size:18px; }
+
+  /* Edit mode toggle */
+  .edit-bar { display:flex; align-items:center; justify-content:flex-end; gap:10px; margin-bottom:16px; }
+  .edit-toggle { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; padding:10px 20px; border-radius:4px; cursor:pointer; transition:all .25s; border:1px solid var(--border); background:transparent; color:var(--muted); }
+  .edit-toggle:hover { color:var(--cream); border-color:var(--border-bright); }
+  .edit-toggle.active { background:var(--red-dim); color:var(--white-active); border-color:var(--red); box-shadow:0 0 12px rgba(0,0,0,.25); }
+  .edit-hint { font-size:11px; color:var(--red-dim); font-style:italic; opacity:0; transition:opacity .3s; }
+  .edit-hint.visible { opacity:1; }
+
+  /* Tabs */
+  .tab-nav { display:flex; gap:8px; margin-bottom:40px; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:8px; flex-wrap:wrap; }
+  .tab-btn { flex:1; min-width:100px; padding:12px 16px; background:transparent; border:1px solid transparent; color:var(--muted); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; cursor:pointer; border-radius:4px; transition:all .25s; white-space:nowrap; }
+  .tab-btn:hover { color:var(--cream); background:rgba(128,128,128,.08); border-color:var(--border); }
+  .tab-btn.active { background:var(--red-dim); color:var(--white-active); border:1px solid var(--red); box-shadow:0 0 12px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06); font-weight:600; letter-spacing:.18em; }
+
+  /* Sections */
+  .section { display:none; animation:fadeUp .4s ease both; }
+  .section.active { display:block; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; font-style:italic; color:var(--muted); letter-spacing:.1em; margin-bottom:24px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+
+  /* Grids */
+  .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-bottom:40px; }
+  .menu-grid.wide { grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); }
+
+  /* Cards */
+  .card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:20px 22px; transition:border-color .25s,transform .2s; position:relative; overflow:hidden; cursor:pointer; }
+  .card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:linear-gradient(to bottom,var(--red-light),var(--red-dim)); transition:height .3s; }
+  .card:hover:not(.edit-mode-card) { border-color:var(--border-bright); transform:translateY(-2px); }
+  .card:hover:not(.edit-mode-card)::before { height:100%; }
+  .card.active-card { border-color:var(--red); background:var(--surface); }
+  .card.active-card::before { height:100%; }
+  .card.highlight { border-color:var(--border-bright); background:linear-gradient(135deg,var(--card),var(--surface)); }
+  .card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px; }
+  .card-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--cream); line-height:1.2; }
+  .card-price { font-family:'Cinzel',serif; font-size:.85rem; color:var(--white-active); white-space:nowrap; padding-top:2px; }
+  .card-ingredients { font-size:.78rem; color:var(--muted); letter-spacing:.04em; line-height:1.6; font-style:italic; }
+  .card-note { margin-top:10px; font-size:.72rem; color:var(--white-active); line-height:1.5; padding-top:10px; border-top:1px solid var(--border); }
+  .card-allergens { display:flex; flex-wrap:wrap; gap:4px; margin-top:10px; }
+  .a-badge { font-size:9px; font-family:'Cinzel',serif; letter-spacing:.05em; padding:2px 6px; border-radius:2px; text-transform:uppercase; }
+  .a-badge.gluten    { background:rgba(180,120,40,.2);   color:#d4943a; border:1px solid rgba(180,120,40,.3); }
+  .a-badge.dairy     { background:rgba(180,180,220,.15); color:#aab0d4; border:1px solid rgba(180,180,220,.25); }
+  .a-badge.nuts      { background:rgba(140,90,40,.2);    color:#c4834a; border:1px solid rgba(140,90,40,.3); }
+  .a-badge.shellfish { background:rgba(40,140,180,.15);  color:#6ab8d4; border:1px solid rgba(40,140,180,.25); }
+  .a-badge.fish      { background:rgba(60,120,180,.15);  color:#7aaad4; border:1px solid rgba(60,120,180,.25); }
+  .a-badge.eggs      { background:rgba(200,190,60,.15);  color:#ccc050; border:1px solid rgba(200,190,60,.25); }
+  .a-badge.soy       { background:rgba(100,160,80,.15);  color:#88c070; border:1px solid rgba(100,160,80,.25); }
+  .a-badge.pork      { background:rgba(180,60,80,.2);    color:#d47080; border:1px solid rgba(180,60,80,.3); }
+  .a-badge.allium    { background:rgba(160,100,200,.2);  color:#c08ae0; border:1px solid rgba(160,100,200,.3); }
+  .a-badge.sesame    { background:rgba(200,160,60,.2);   color:#d4b84a; border:1px solid rgba(200,160,60,.3); }
+  .a-removable-icon { font-size:8px; margin-left:2px; }
+  .a-removable-icon.can-remove { color:#39ff7a; text-shadow:0 0 6px rgba(40,255,100,.8),0 0 12px rgba(40,255,100,.4); }
+  .a-removable-icon.no-remove  { color:#f0eaea; text-shadow:0 0 6px rgba(255,255,255,.9),0 0 12px rgba(255,255,255,.4); }
+
+  /* Edit card overlay buttons */
+  .card-edit-actions { display:none; position:absolute; top:8px; right:8px; gap:6px; z-index:5; }
+  body.edit-mode .card-edit-actions { display:flex; }
+  body.edit-mode .card { cursor:default; }
+  .btn-edit-card, .btn-del-card { width:28px; height:28px; border-radius:3px; border:none; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+  .btn-edit-card { background:var(--red-dim); color:var(--white-active); border:1px solid var(--red); }
+  .btn-edit-card:hover { background:var(--red); }
+  .btn-del-card { background:rgba(0,0,0,.4); color:#e08080; border:1px solid rgba(180,60,60,.4); }
+  .btn-del-card:hover { background:rgba(150,30,30,.9); color:#fff; }
+
+  /* Add card button */
+  .add-card-btn { display:none; background:transparent; border:1px dashed var(--red-dim); border-radius:4px; padding:20px; color:var(--red-dim); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.2em; cursor:pointer; transition:all .25s; align-items:center; justify-content:center; gap:8px; min-height:80px; }
+  body.edit-mode .add-card-btn { display:flex; }
+  .add-card-btn:hover { border-color:var(--red); color:var(--red); background:rgba(128,128,128,.04); }
+
+  /* Simple list cards */
+  .beer-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
+  .beer-card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; transition:border-color .2s; }
+  .beer-card:hover { border-color:var(--border-bright); }
+  .beer-name { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--cream); }
+  .beer-price { font-family:'Cinzel',serif; font-size:.8rem; color:var(--white-active); }
+
+  /* Focaccia */
+  .focaccia-options { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+  .focaccia-option { font-size:.78rem; color:var(--muted); padding:6px 10px; background:rgba(155,44,44,.04); border-left:2px solid var(--red-dim); font-style:italic; }
+  .focaccia-option .upcharge { color:var(--red); font-style:normal; }
+  .sub-label { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.3em; color:var(--red); text-transform:uppercase; margin:32px 0 16px; }
+
+  /* Slide panel */
+  .panel-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:99; opacity:0; pointer-events:none; transition:opacity .3s; }
+  .panel-overlay.visible { opacity:1; pointer-events:all; }
+  .slide-panel { position:fixed; top:0; right:0; height:100vh; width:var(--panel-width); max-width:95vw; background:var(--surface); border-left:1px solid var(--border-bright); z-index:100; transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; overflow:hidden; }
+  .slide-panel.open { transform:translateX(0); }
+  .panel-close { position:absolute; top:16px; right:16px; background:var(--red-dim); border:1px solid var(--red); color:var(--white-active); width:32px; height:32px; border-radius:3px; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10; }
+  .panel-close:hover { background:var(--red); }
+  .panel-photo { width:100%; height:190px; flex-shrink:0; background:var(--card); border-bottom:1px solid var(--border); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:var(--muted); }
+  .panel-photo svg { opacity:.3; }
+  .panel-photo span { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.25em; opacity:.4; text-transform:uppercase; }
+  .panel-body { flex:1; overflow-y:auto; padding:24px 28px 40px; }
+  .panel-body::-webkit-scrollbar { width:4px; }
+  .panel-body::-webkit-scrollbar-thumb { background:var(--red-dim); border-radius:2px; }
+  .panel-category { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.35em; color:var(--red); text-transform:uppercase; margin-bottom:8px; }
+  .panel-name { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--white-active); line-height:1.1; margin-bottom:6px; }
+  .panel-price { font-family:'Cinzel',serif; font-size:1rem; color:var(--white-active); margin-bottom:20px; }
+  .panel-divider { height:1px; background:var(--border); margin:18px 0; }
+  .panel-section-label { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.3em; color:var(--red-dim); text-transform:uppercase; margin-bottom:10px; }
+  .panel-ingredients { display:flex; flex-wrap:wrap; gap:8px; }
+  .ingredient-tag { font-size:.75rem; font-style:italic; color:var(--cream); background:rgba(128,128,128,.06); border:1px solid var(--border); padding:4px 10px; border-radius:2px; }
+  .panel-description { font-size:.85rem; color:var(--white-active); line-height:1.7; }
+  .panel-allergens { display:flex; flex-wrap:wrap; gap:6px; }
+  .panel-allergen { padding:6px 12px; border-radius:3px; font-size:.72rem; font-family:'Cinzel',serif; letter-spacing:.08em; text-transform:uppercase; }
+  .panel-allergen.gluten    { background:rgba(180,120,40,.15);  color:#d4943a; border:1px solid rgba(180,120,40,.25); }
+  .panel-allergen.dairy     { background:rgba(180,180,220,.1);  color:#aab0d4; border:1px solid rgba(180,180,220,.2); }
+  .panel-allergen.nuts      { background:rgba(140,90,40,.15);   color:#c4834a; border:1px solid rgba(140,90,40,.25); }
+  .panel-allergen.shellfish { background:rgba(40,140,180,.1);   color:#6ab8d4; border:1px solid rgba(40,140,180,.2); }
+  .panel-allergen.fish      { background:rgba(60,120,180,.1);   color:#7aaad4; border:1px solid rgba(60,120,180,.2); }
+  .panel-allergen.eggs      { background:rgba(200,190,60,.1);   color:#ccc050; border:1px solid rgba(200,190,60,.2); }
+  .panel-allergen.soy       { background:rgba(100,160,80,.1);   color:#88c070; border:1px solid rgba(100,160,80,.2); }
+  .panel-allergen.pork      { background:rgba(180,60,80,.15);   color:#d47080; border:1px solid rgba(180,60,80,.25); }
+  .panel-allergen.allium    { background:rgba(160,100,200,.15); color:#c08ae0; border:1px solid rgba(160,100,200,.25); }
+  .panel-allergen.sesame    { background:rgba(200,160,60,.15);  color:#d4b84a; border:1px solid rgba(200,160,60,.25); }
+  .no-allergens { font-size:.78rem; color:var(--muted); font-style:italic; }
+  .panel-allergen { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:3px; font-size:.72rem; font-family:'Cinzel',serif; letter-spacing:.06em; text-transform:uppercase; width:100%; justify-content:space-between; }
+  .pa-emoji { font-size:1rem; }
+  .pa-name { flex:1; }
+  .pa-removable { font-size:.68rem; letter-spacing:.08em; padding:2px 8px; border-radius:2px; white-space:nowrap; }
+  .pa-removable.can-remove  { color:#39ff7a; background:rgba(40,255,100,.08); border:1px solid rgba(40,255,100,.35); text-shadow:0 0 8px rgba(40,255,100,.7),0 0 16px rgba(40,255,100,.4); box-shadow:0 0 6px rgba(40,255,100,.2); }
+  .pa-removable.no-remove   { color:#f0eaea; background:rgba(240,230,230,.06); border:1px solid rgba(240,230,230,.3); text-shadow:0 0 8px rgba(255,255,255,.8),0 0 16px rgba(255,255,255,.4); box-shadow:0 0 6px rgba(255,255,255,.15); }
+  /* Two-state allergen toggles in edit modal */
+  .allergen-toggle.on.locked   { opacity:.9; }
+  .allergen-toggle.on.removable { opacity:.9; }
+
+  /* Edit modal */
+  .modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
+  .modal-bg.open { display:flex; }
+  .modal { background:var(--surface); border:1px solid var(--border-bright); border-radius:6px; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; padding:32px; }
+  .modal h2 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--white-active); margin-bottom:24px; }
+  .form-group { margin-bottom:18px; }
+  .form-group label { display:block; font-family:'Cinzel',serif; font-size:9px; letter-spacing:.25em; color:var(--red-dim); text-transform:uppercase; margin-bottom:6px; }
+  .form-group input, .form-group textarea { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:3px; padding:10px 12px; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:.85rem; outline:none; transition:border-color .2s; resize:vertical; }
+  .form-group input:focus, .form-group textarea:focus { border-color:var(--red); }
+  .form-group textarea { min-height:80px; }
+  .allergen-toggles { display:flex; flex-wrap:wrap; gap:8px; }
+  .allergen-toggle { padding:6px 14px; border-radius:3px; font-size:.72rem; font-family:'Cinzel',serif; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; border:1px solid var(--border); background:transparent; color:var(--muted); transition:all .2s; }
+  .allergen-toggle.on.gluten    { background:rgba(180,120,40,.2);   color:#d4943a; border-color:rgba(180,120,40,.4); }
+  .allergen-toggle.on.dairy     { background:rgba(180,180,220,.15); color:#aab0d4; border-color:rgba(180,180,220,.3); }
+  .allergen-toggle.on.nuts      { background:rgba(140,90,40,.2);    color:#c4834a; border-color:rgba(140,90,40,.4); }
+  .allergen-toggle.on.shellfish { background:rgba(40,140,180,.15);  color:#6ab8d4; border-color:rgba(40,140,180,.3); }
+  .allergen-toggle.on.fish      { background:rgba(60,120,180,.15);  color:#7aaad4; border-color:rgba(60,120,180,.3); }
+  .allergen-toggle.on.eggs      { background:rgba(200,190,60,.15);  color:#ccc050; border-color:rgba(200,190,60,.3); }
+  .allergen-toggle.on.soy       { background:rgba(100,160,80,.15);  color:#88c070; border-color:rgba(100,160,80,.3); }
+  .allergen-toggle.on.pork      { background:rgba(180,60,80,.2);    color:#d47080; border-color:rgba(180,60,80,.4); }
+  .allergen-toggle.on.allium    { background:rgba(160,100,200,.2);  color:#c08ae0; border-color:rgba(160,100,200,.4); }
+  .allergen-toggle.on.sesame    { background:rgba(200,160,60,.2);   color:#d4b84a; border-color:rgba(200,160,60,.4); }
+  .modal-actions { display:flex; gap:10px; margin-top:24px; justify-content:flex-end; }
+  .btn-save { background:var(--red-dim); color:var(--white-active); border:1px solid var(--red); padding:10px 24px; border-radius:3px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; cursor:pointer; transition:background .2s; }
+  .btn-save:hover { background:var(--red); }
+  .btn-cancel { background:transparent; color:var(--muted); border:1px solid var(--border); padding:10px 20px; border-radius:3px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; cursor:pointer; transition:all .2s; }
+  .btn-cancel:hover { color:var(--cream); border-color:var(--border-bright); }
+
+  /* Export bar */
+  .save-toast { position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--red-dim); border:1px solid var(--red); color:var(--white-active); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em; padding:10px 24px; border-radius:4px; z-index:300; opacity:0; transition:all .3s ease; pointer-events:none; }
+  .save-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .export-bar { display:none; position:sticky; bottom:24px; z-index:50; justify-content:center; margin-top:24px; gap:10px; }
+  body.edit-mode .export-bar { display:flex; }
+  .btn-export { background:var(--red); color:var(--white-active); border:none; padding:14px 36px; border-radius:4px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.2em; cursor:pointer; box-shadow:0 4px 24px rgba(0,0,0,.3); transition:all .25s; }
+  .btn-export:hover { background:var(--red-light); box-shadow:0 6px 32px rgba(0,0,0,.4); transform:translateY(-1px); }
+
+  /* Clickable title */
+  .header h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,6vw,4.5rem); font-weight:300; color:var(--white-active); letter-spacing:.05em; line-height:1; cursor:pointer; user-select:none; transition:opacity .2s; }
+  .header h1:active { opacity:.7; }
+
+  /* Password modal */
+  .pw-modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:400; display:none; align-items:center; justify-content:center; padding:20px; }
+  .pw-modal-bg.open { display:flex; }
+  .pw-modal { background:var(--surface); border:1px solid var(--border-bright); border-radius:6px; width:100%; max-width:340px; padding:32px; text-align:center; }
+  .pw-modal-title { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.35em; color:var(--red-dim); text-transform:uppercase; margin-bottom:8px; }
+  .pw-modal-sub { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--white-active); margin-bottom:24px; }
+  .pw-input { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:3px; padding:12px; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:1.1rem; text-align:center; letter-spacing:.3em; outline:none; transition:border-color .2s; }
+  .pw-input:focus { border-color:var(--red); }
+  .pw-input.shake { animation:shake .35s ease; border-color:#c05050; }
+  .pw-error { font-size:.75rem; color:#c05050; margin-top:8px; height:16px; transition:opacity .2s; }
+  .pw-actions { display:flex; gap:10px; margin-top:20px; }
+  .pw-actions .btn-save { flex:1; }
+  .pw-actions .btn-cancel { flex:1; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+
+  /* Settings panel */
+  .settings-bg { position:fixed; inset:0; background:var(--bg); z-index:500; display:none; flex-direction:column; overflow-y:auto; }
+  .settings-bg.open { display:flex; }
+  .settings-header { display:flex; align-items:center; justify-content:space-between; padding:24px 28px 20px; border-bottom:1px solid var(--border); flex-shrink:0; }
+  .settings-title { font-family:'Cinzel',serif; font-size:13px; letter-spacing:.3em; color:var(--white-active); text-transform:uppercase; }
+  .settings-close { background:var(--red-dim); border:1px solid var(--red); color:var(--white-active); width:36px; height:36px; border-radius:3px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:background .2s; flex-shrink:0; }
+  .settings-close:hover { background:var(--red); }
+  .settings-body { flex:1; padding:28px; max-width:600px; width:100%; margin:0 auto; }
+  .settings-section { margin-bottom:36px; }
+  .settings-section-title { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.3em; color:var(--red); text-transform:uppercase; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .settings-row { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid rgba(155,44,44,.08); }
+  .settings-row:last-child { border-bottom:none; }
+  .settings-row-label { font-size:.85rem; color:var(--cream); }
+  .settings-row-sub { font-size:.72rem; color:var(--muted); margin-top:3px; }
+  .settings-btn { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.15em; padding:8px 18px; border-radius:3px; cursor:pointer; transition:all .2s; white-space:nowrap; }
+  .settings-btn.primary { background:var(--red-dim); color:var(--white-active); border:1px solid var(--red); }
+  .settings-btn.primary:hover { background:var(--red); }
+  .settings-btn.ghost { background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .settings-btn.ghost:hover { color:var(--cream); border-color:var(--border-bright); }
+  .settings-btn.danger { background:rgba(150,30,30,.2); color:#e08080; border:1px solid rgba(180,60,60,.3); }
+  .settings-btn.danger:hover { background:rgba(150,30,30,.5); color:#fff; }
+  .settings-version { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.2em; color:var(--red-dim); text-align:center; margin-top:8px; }
+
+  /* Floating update button */
+  .float-update-btn { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:90; background:var(--red-dim); border:1px solid var(--red); color:var(--white-active); font-family:'Cinzel',serif; font-size:10px; letter-spacing:.2em; padding:12px 28px; border-radius:24px; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,.4); transition:all .25s; white-space:nowrap; display:flex; align-items:center; gap:8px; }
+  .float-update-btn:hover { background:var(--red); box-shadow:0 6px 28px rgba(0,0,0,.5); transform:translateX(-50%) translateY(-2px); }
+  .float-update-btn.loading { opacity:.7; pointer-events:none; }
+  body.edit-mode .float-update-btn { display:none; }
+  .palette-btn { position:absolute; top:0; right:0; background:transparent; border:1px solid var(--border); border-radius:4px; color:var(--muted); font-size:18px; width:38px; height:38px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .2s; }
+  .palette-btn:hover { border-color:var(--border-bright); color:var(--cream); }
+  .header { position:relative; text-align:center; margin-bottom:48px; animation:fadeDown .8s ease both; }
+
+  /* Theme picker modal */
+  .theme-modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:400; display:none; align-items:flex-end; justify-content:center; }
+  .theme-modal-bg.open { display:flex; }
+  .theme-modal { background:var(--surface); border:1px solid var(--border-bright); border-radius:12px 12px 0 0; width:100%; max-width:520px; padding:28px 24px 40px; }  .theme-modal-title { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.35em; color:var(--red); text-transform:uppercase; margin-bottom:20px; text-align:center; }
+  .theme-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin-bottom:20px; }
+  .theme-swatch { border-radius:6px; padding:12px 10px; cursor:pointer; border:2px solid transparent; transition:all .25s; text-align:center; }
+  .theme-swatch.previewing { border-color:white; transform:scale(1.04); }
+  .theme-swatch.active-theme { border-color:white; box-shadow:0 0 12px rgba(255,255,255,.2); }
+  .theme-swatch-name { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.15em; text-transform:uppercase; margin-top:6px; }
+  .theme-swatch-dots { display:flex; gap:4px; justify-content:center; margin-bottom:4px; }
+  .theme-swatch-dot { width:12px; height:12px; border-radius:50%; }
+  .theme-actions { display:flex; gap:10px; }
+  .theme-actions .btn-save { flex:1; }
+  .theme-actions .btn-cancel { flex:1; }
+
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  ::-webkit-scrollbar{width:6px} ::-webkit-scrollbar-track{background:var(--bg)} ::-webkit-scrollbar-thumb{background:var(--red-dim);border-radius:3px}
+  @media(max-width:600px){:root{--panel-width:100vw}.container.panel-open{margin-right:0}}
+</style>
+</head>
+<body>
+
+<!-- Panel overlay -->
+<div class="panel-overlay" id="overlay" onclick="closePanel()"></div>
+
+<!-- Slide panel (view mode) -->
+<div class="slide-panel" id="slidePanel">
+  <button class="panel-close" onclick="closePanel()">✕</button>
+  <div class="panel-photo">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    <span>Photo Coming Soon</span>
+  </div>
+  <div class="panel-body">
+    <div class="panel-category" id="panelCategory"></div>
+    <div class="panel-name" id="panelName"></div>
+    <div class="panel-price" id="panelPrice"></div>
+    <div class="panel-section-label">Ingredients</div>
+    <div class="panel-ingredients" id="panelIngredients"></div>
+    <div class="panel-divider"></div>
+    <div class="panel-section-label">Description</div>
+    <p class="panel-description" id="panelDescription"></p>
+    <div class="panel-divider"></div>
+    <div class="panel-section-label">Allergens</div>
+    <div class="panel-allergens" id="panelAllergens"></div>
+  </div>
+</div>
+
+<!-- Edit modal -->
+<div class="modal-bg" id="editModal">
+  <div class="modal">
+    <h2 id="modalTitle">Edit Dish</h2>
+    <div class="form-group"><label>Dish Name</label><input id="fName" type="text" placeholder="e.g. Crispy Potatoes"></div>
+    <div class="form-group"><label>Price</label><input id="fPrice" type="text" placeholder="e.g. $10"></div>
+    <div class="form-group"><label>Ingredients (comma separated)</label><input id="fIngredients" type="text" placeholder="e.g. Potatoes, Sicilian Pesto, Garlic Emulsion"></div>
+    <div class="form-group"><label>Description</label><textarea id="fDescription" placeholder="Short dish description..."></textarea></div>
+    <div class="form-group">
+      <label>Allergens — 1 tap = cannot remove ✕ · 2 taps = can remove ✓ · 3 taps = off</label>
+      <div class="allergen-toggles" id="allergenToggles"></div>
+    </div>
+    <div class="form-group"><label>Style</label>
+      <select id="fHighlight" style="width:100%;background:#0f0808;border:1px solid var(--border);border-radius:3px;padding:10px 12px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;">
+        <option value="">Standard</option>
+        <option value="highlight">Highlighted</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveCard()">Save Card</button>
+    </div>
+  </div>
+</div>
+
+<!-- Password modal -->
+<div class="pw-modal-bg" id="pwModal">
+  <div class="pw-modal">
+    <div class="pw-modal-title">Management Access</div>
+    <div class="pw-modal-sub">Enter Password</div>
+    <input class="pw-input" id="pwInput" type="password" maxlength="32" placeholder="••••"
+      onkeydown="if(event.key==='Enter')submitPassword()"
+      oninput="document.getElementById('pwError').style.opacity=0">
+    <div class="pw-error" id="pwError">Incorrect password</div>
+    <div class="pw-actions">
+      <button class="btn-cancel" onclick="closePwModal()">Cancel</button>
+      <button class="btn-save" onclick="submitPassword()">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<!-- Settings panel -->
+<div class="settings-bg" id="settingsPanel">
+  <div class="settings-header">
+    <div class="settings-title">⚙ Settings</div>
+    <button class="settings-close" onclick="closeSettings()">✕</button>
+  </div>
+  <div class="settings-body">
+
+    <!-- MENU EDITOR -->
+    <div class="settings-section">
+      <div class="settings-section-title">✎ Menu Editor</div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Edit Mode</div>
+          <div class="settings-row-sub">Add, edit or remove menu cards</div>
+        </div>
+        <button class="settings-btn primary" id="settingsEditBtn" onclick="toggleEditFromSettings()">Enable Editing</button>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Check for Updates</div>
+          <div class="settings-row-sub">Pull latest menu data from GitHub</div>
+        </div>
+        <button class="settings-btn ghost" onclick="checkForUpdates()">↻ Update</button>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Save for GitHub Push</div>
+          <div class="settings-row-sub">Download updated file → upload to GitHub → staff hit update</div>
+        </div>
+        <button class="settings-btn ghost" onclick="exportForGitHub()">⬇ Save</button>
+      </div>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="settings-section">
+      <div class="settings-section-title">🔐 Security</div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Change Password</div>
+          <div class="settings-row-sub">Update the management access password</div>
+        </div>
+        <button class="settings-btn primary" onclick="openChangePassword()">Change</button>
+      </div>
+      <div class="settings-row" id="changePwForm" style="display:none; flex-direction:column; align-items:stretch; gap:10px;">
+        <input class="pw-input" id="newPw1" type="password" placeholder="New password" style="letter-spacing:.1em; text-align:left; padding:10px 12px;">
+        <input class="pw-input" id="newPw2" type="password" placeholder="Confirm new password" style="letter-spacing:.1em; text-align:left; padding:10px 12px;">
+        <div class="pw-error" id="changePwError" style="opacity:0;">Passwords do not match</div>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-cancel" style="flex:1" onclick="closeChangePassword()">Cancel</button>
+          <button class="btn-save" style="flex:1" onclick="saveNewPassword()">Save Password</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISPLAY -->
+    <div class="settings-section">
+      <div class="settings-section-title">🎨 Display</div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Theme</div>
+          <div class="settings-row-sub">Personalise your view — only changes on your device</div>
+        </div>
+        <button class="settings-btn primary" onclick="closeSettings();openThemePicker()">Change</button>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="settings-section">
+      <div class="settings-section-title">ℹ About</div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Staff Menu Reference</div>
+          <div class="settings-row-sub">Version 4.0 — built for front of house</div>
+        </div>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Reset Local Data</div>
+          <div class="settings-row-sub">Clears saved edits — reverts to last GitHub push</div>
+        </div>
+        <button class="settings-btn danger" onclick="resetLocalData()">Reset</button>
+      </div>
+      <div class="settings-version">Staff Menu · v4.0</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Theme picker modal -->
+<div class="theme-modal-bg" id="themeModal">
+  <div class="theme-modal">
+    <div class="theme-modal-title">Choose Your Theme</div>
+    <div class="theme-grid" id="themeGrid"></div>
+    <div class="theme-actions">
+      <button class="btn-cancel" onclick="cancelTheme()">Cancel</button>
+      <button class="btn-save" onclick="confirmTheme()">Apply Theme</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="mainContainer">
+  <div class="header">
+    <div class="header-eyebrow">Staff Reference</div>
+    <h1 onclick="openPasswordModal()" title="">The Menu</h1>
+    <div class="header-rule"><span>✦</span></div>
+    <button class="palette-btn" onclick="openThemePicker()" title="Change theme" style="right:48px;">🎨</button>
+    <button class="palette-btn" onclick="exportForGitHub()" title="Save for GitHub Push">⬇</button>
+  </div>
+
+  <div class="edit-bar" id="editBar" style="display:none;">
+    <span class="edit-hint" id="editHint">✎ Click any card to edit · Use + to add · 🗑 to remove</span>
+    <button class="edit-toggle" id="editToggle" onclick="toggleEditMode()">✎ Edit Menu</button>
+  </div>
+
+  <div class="tab-nav" id="tabNav"></div>
+  <div id="sectionsContainer"></div>
+
+  <div class="export-bar" id="exportBar">
+    <button class="btn-export" onclick="exportForGitHub()" style="background:var(--red-dim);box-shadow:none;">⬇ Save for GitHub Push</button>
+  </div>
+</div>
+<button class="float-update-btn" id="floatUpdateBtn" onclick="checkForUpdates()">↻ Check for Updates</button>
+<div class="save-toast" id="saveToast"></div>
+
+<script>
+// ─────────────────────────────────────────────
+// MENU DATA — edit this object to change content
+// ─────────────────────────────────────────────
+const ALLERGEN_LIST = ['gluten','dairy','nuts','shellfish','fish','eggs','soy','pork','allium','sesame'];
+const ALLERGEN_EMOJI = {gluten:'🌾',dairy:'🥛',nuts:'🥜',shellfish:'🦐',fish:'🐟',eggs:'🥚',soy:'🫘',pork:'🐷',allium:'🧅',sesame:'🫙'};
+
+/*DATA_START*/
+let menuData = {
+  tabs: [
+    { id:'small', label:'Small Plates', subtitle:'Small Plates — shareables & starters', wide:false },
+    { id:'pasta', label:'Pasta', subtitle:'Handmade Pasta — all $24', wide:false },
+    { id:'large', label:'Large Plates', subtitle:'Large Plates — the main event', wide:false },
+    { id:'raw', label:'Raw Bar', subtitle:'Raw Bar — fresh & light', wide:false },
+    { id:'breads', label:'Spreads<br>&amp;<br>Breads', subtitle:'Spreads & Breads — for the table', wide:false },
+    { id:'desserts', label:'Desserts', subtitle:'Desserts — sweet endings', wide:false },
+    { id:'cocktails', label:'Cocktails', subtitle:'Signature Cocktails', wide:true },
+    { id:'beer', label:'Beer', subtitle:'Beer — no notes on the non-alcoholics', wide:false, simple:true },
+    { id:'wine', label:'Wine', subtitle:'Wine — by the glass where noted, otherwise bottle only', wide:false, simple:true },
+    { id:'liquor', label:'Liquor', subtitle:'Straight Liquor — 1.5oz pours', wide:false, simple:true }
+  ],
+  cards: {
+    small: [
+      { name:'Pork Belly Skewers', price:'$15', ingredients:'Pork Belly,Pickled Mustard Seeds,Marcona Almonds', description:'Slow-roasted pork belly skewered and finished with bright pickled mustard seeds and buttery Marcona almonds.', allergens:'nuts:yes,allium:no,seafood:no,pork:no', highlight:false },
+      { name:'Crispy Potatoes', price:'$10', ingredients:'Potatoes,Sicilian Pesto,Garlic Emulsion', description:'Golden fried potatoes dressed in a rich Sicilian pesto and a smooth roasted garlic emulsion.', allergens:'soy:no,dairy:yes,nuts:yes,allium:yes', highlight:false },
+      { name:'Roasted Beets', price:'$10', ingredients:'Beets,Harissa Honey,Whipped Feta,Pistachio', description:'Oven-roasted beets glazed with spiced harissa honey, served over a whipped feta and pistachio spread.', allergens:'dairy:yes,nuts:yes', highlight:false },
+      { name:'Grilled Broccoli', price:'$10', ingredients:'Broccoli,Muhammara,Parmesan,Marcona Almond', description:'Charred broccoli over a smoky roasted red pepper and walnut muhammara, finished with Parmesan and Marcona almonds.', allergens:'dairy:yes,nuts:yes,allium:no', highlight:false },
+      { name:'Crab Cake', price:'$16 / single', ingredients:'Jumbo Lump Crab,Schug,Lemon', description:'A single pan-seared jumbo lump crab cake served with schug — a vibrant Yemeni green herb and chili sauce — and fresh lemon.', allergens:'gluten:no,allium:no,seafood:no,sesame:no,shellfish:no', highlight:false },
+      { name:'Polenta Arancini', price:'$18', ingredients:'Polenta,Beef Ragu,Asiago', description:'Crispy fried polenta balls stuffed with slow-braised beef ragu and melted Asiago cheese.', allergens:'soy:no,dairy:no,allium:no,eggs:yes', highlight:false },
+      { name:'Lamb Kafta', price:'$15', ingredients:'Ground Lamb,Babaganoush,House Pickles', description:'Herb and spice-blended ground lamb served over silky charred babaganoush with tangy house-made pickles.', allergens:'gluten:no,allium:no,eggs:no', highlight:false },
+      { name:'Wood-Fired Texas Red Fish', price:'$27', ingredients:'Texas Red Fish,Shawarma Spiced Butter,Charred Lemon', description:'Gulf Coast redfish cooked over a wood fire, finished with a warm shawarma spiced butter and charred lemon.', allergens:'dairy:no,allium:no,seafood:no,sesame:no', highlight:true }
+    ],
+    pasta: [
+      { name:'Lumache Alla Vodka', price:'$24', ingredients:'Lumache Pasta,Nduja,Stracciatella,Vodka Sauce', description:'House-made shell pasta tossed in a vodka sauce with spicy Calabrian nduja and finished with cool, creamy stracciatella.', allergens:'gluten:no,dairy:no,allium:no,pork:no', highlight:false },
+      { name:'Potato Gnocchi', price:'$24', ingredients:'Potato Gnocchi,Pecorino,Black Pepper,Fried Alliums', description:'Hand-rolled potato gnocchi prepared in the Roman cacio e pepe tradition — Pecorino, black pepper, and crispy fried alliums.', allergens:'gluten:no,dairy:no,allium:yes,eggs:no', highlight:false },
+      { name:'Seafood Alla Chitarra', price:'$24', ingredients:'Squid Ink Chitarra,Chorizo,Shrimp,Pangrattato,Chives', description:'House squid ink chitarra pasta with chorizo and Gulf shrimp, topped with crispy seasoned pangrattato breadcrumbs and chives.', allergens:'gluten:no,dairy:no,allium:no,seafood:yes,shellfish:yes,pork:no', highlight:false }
+    ],
+    large: [
+      { name:'Hanger Steak', price:'$38', ingredients:'Hanger Steak,Pepperonata,Schug', description:'Grilled hanger steak served over a slow-cooked sweet pepper pepperonata and finished with bright, herby schug.', allergens:'allium:yes,seafood:yes', highlight:true },
+      { name:'Half Chicken', price:'$28', ingredients:'Half Chicken,Red Harissa Emulsion,House Pickles,Lemon', description:'Roasted half chicken served with a silky North African red harissa emulsion, house-made pickles, and fresh lemon.', allergens:'allium:yes,eggs:yes', highlight:false },
+      { name:'Beef Ragu Lasagna', price:'$30', ingredients:'Lasagna Sheets,Beef Ragu,Cremini Mushrooms,Basil Pesto,Bechamel', description:'Layered lasagna with slow-braised beef ragu and cremini mushrooms, finished with a fresh basil pesto.', allergens:'gluten:no,dairy:no,nuts:yes,allium:no,eggs:no', highlight:false }
+    ],
+    raw: [
+      { name:'Hamachi Crudo', price:'$15', ingredients:'Yellowtail,Citrus,Truffle,Oregano', description:'Thinly sliced raw yellowtail dressed with bright citrus, aromatic oregano, and a finishing touch of truffle.', allergens:'allium:no,seafood:no', highlight:true },
+      { name:'Caesar Salad', price:'$14', ingredients:'Romaine,Parmesan,Lemon Pangrattato,Caesar Dressing,Anchovy', description:'Classic Caesar topped with shaved Parmesan and house lemon pangrattato — toasted seasoned breadcrumbs in place of croutons. Contains anchovy in the dressing.', allergens:'soy:no,gluten:yes,dairy:no,allium:no,eggs:no,seafood:no', highlight:false },
+      { name:'Mixed Greens', price:'$14', ingredients:'Mixed Greens,Whipped Goat Cheese,Date,Apple,Prosciutto', description:'Fresh greens with whipped goat cheese, sweet Medjool dates, crisp apple, and thin-sliced prosciutto.', allergens:'dairy:yes,pork:no', highlight:false },
+      { name:'Dressed Oysters', price:'½ dz $25 · dz $48', ingredients:'Fresh Oysters,Blood Orange,Chive Oil,Calabrian Chile Water', description:'Fresh-shucked oysters dressed with blood orange, chive oil, and a Calabrian chile mignonette water.', allergens:'allium:no,seafood:no,shellfish:no', highlight:true }
+    ],
+    breads: [
+      { name:'Sourdough Focaccia', price:'$16 (+ $3 Bone Marrow)', ingredients:'Sourdough Focaccia,Burrata / Marinated Tomato / Basil Pesto,Whipped Goat Feta / Honeycomb / Rosemary Oil,Roasted Bone Marrow / Schug (+$3)', description:'House sourdough focaccia — choose one topping. Burrata: Gluten** Dairy* Allium**. Whipped Feta: Gluten** Dairy* Allium**. Bone Marrow (+$3): Gluten** Dairy* Allium* Seafood**. All options contain Gluten* from the bread itself.', allergens:'gluten:no,dairy:no,allium:yes', highlight:false },
+      { name:'Mezze Board', price:'$13', ingredients:'Hummus,Muhammara,Babaganoush,House Pickles,Pita', description:'Five house-made spreads served with warm pita. Hummus: Allium* Sesame*. Muhammara: Nut* Allium*. Babaganoush: Allium* Sesame*. Pita: Gluten*.', allergens:'gluten:no,nuts:no,allium:no,sesame:no', highlight:false },
+      { name:'Duck Hummus', price:'$18', ingredients:'Confit Duck,Muhammara Hummus,Pita,Sumac,Red Onion', description:'Slow-cooked confit duck leg served over a spiced muhammara hummus with warm pita, sumac, and pickled red onion.', allergens:'gluten:yes,nuts:no,allium:no,sesame:no', highlight:true }
+    ],
+    desserts: [
+      { name:'Zeppole', price:'', ingredients:'Fried Dough,Powdered Sugar', description:'Italian-style fried dough bites — light, airy, and dusted with powdered sugar. A simple, classic finish.', allergens:'soy:no,gluten:no,dairy:no,eggs:no', highlight:false },
+      { name:'Cheesecake Mousse', price:'', ingredients:'Cheesecake Mousse,Graham Cracker', description:'Light whipped cheesecake mousse with a graham cracker element. Nuts can be omitted on request.', allergens:'gluten:no,dairy:no,nuts:yes', highlight:false },
+      { name:'Affogato', price:'', ingredients:'Vanilla Ice Cream,Espresso', description:'A scoop of vanilla ice cream drowned in a shot of hot espresso — simple, elegant, perfect.', allergens:'dairy:no,eggs:no', highlight:true }
+    ],
+    cocktails: [
+      { name:'Old Fashioned', price:'$14', ingredients:'Old Grand Dad Bonded Bourbon,Turbinado,House Bitters,Expressed Citrus,Cherry', description:'A classic build of bonded bourbon stirred with turbinado, house bitters, expressed citrus peel, and a cherry. Preferred bourbon available on request.', allergens:'', highlight:false },
+      { name:'Cursedly Fashionable', price:'$15', ingredients:"Tito's Vodka,House Coffee Liqueur,Espresso,Licor 43,Sugar", description:'A bold espresso martini riff built with house-made coffee liqueur, fresh espresso, and the vanilla warmth of Licor 43.', allergens:'', highlight:false },
+      { name:'Butterfly Valley', price:'$15', ingredients:'Aged Rum,Shawarma Spice,Nanino Aperitivo,Banana,Drambuie,Lime,Angostura', description:'Aged rum shaken with warm shawarma spice, banana, Drambuie, and a bright lime finish — complex and layered.', allergens:'', highlight:false },
+      { name:'Match Point', price:'$14', ingredients:'Gin,Italicus Bergamot,Montenegro,Ginger,Aquafaba,Cherry Bark Vanilla', description:'Gin shaken with bergamot, amaro, ginger, and aquafaba for a silky foam — delicate, floral, and aromatic. Note: aquafaba is chickpea water, not egg — safe for egg allergies.', allergens:'', highlight:false },
+      { name:'Calderone', price:'$15', ingredients:'Tequila,Illegal Mezcal,Luxardo,Licor 43,Strega,Cointreau,Bitters', description:'Six-spirit stirred cocktail — tequila and mezcal anchored by maraschino, orange, and Italian herbal liqueurs.', allergens:'', highlight:false },
+      { name:'Paperback Romance', price:'$15', ingredients:'Dripping Springs Vodka,Cocchi Bianco,Lemon,Strawberry,Rose Bud,Eucalyptus,Edible Flowers', description:'A floral, aromatic vodka cocktail with fresh strawberry, rose, and a subtle eucalyptus finish — garnished with edible flowers.', allergens:'', highlight:false },
+      { name:'Valentina', price:'$15', ingredients:'Blanco Tequila,Chareau Aloe Liqueur,Cucumber,Lime,Calabrian Pepper,Chili Salt', description:'Blanco tequila with cooling aloe and cucumber, heat from Calabrian pepper, and a chili salt rim.', allergens:'', highlight:false },
+      { name:'Perla Rosa Spritz', price:'$14', ingredients:'Cocchi Rosa,Citadelle Gin,Watermelon,Lemon,Grapefruit,Sugar,Mineral Water,Prosecco', description:'A light, effervescent spritz of Cocchi Rosa and gin with fresh watermelon, grapefruit, and Prosecco.', allergens:'', highlight:false },
+      { name:'Gentian Gentleman', price:'$15', ingredients:'London Dry Gin,Fino Sherry,Salers Aperitif,Basil,Lemon,White Fig,Thyme,White Balsamic,Mediterranean Tonic', description:'A herbaceous, low-ABV gin and sherry build with white fig, thyme, and white balsamic over Mediterranean tonic.', allergens:'', highlight:false },
+      { name:'Q&A', price:'$13', ingredients:'Select Aperitivo,Mint Amaro,Del Maguey Mezcal,Ginger,Lemon,Orange', description:'A refreshing mezcal aperitivo build with mint amaro, ginger, and citrus — approachable and sessionable.', allergens:'', highlight:false }
+    ],
+    beer: {
+      groups: [
+        { label:'Draft', items:[{name:'Peroni',price:'$8'},{name:'Brotherwell Seasonal',price:'$8'}] },
+        { label:'Bottles & Cans', items:[{name:'Bridge St Wit',price:'$7'},{name:'Yellow Rose IPA',price:'$7'},{name:'Shiner Bock',price:'$7'},{name:'Modelo',price:'$7'},{name:'Miller High Life',price:'$6'},{name:'Michelob Ultra',price:'$6'},{name:'Austin Eastciders Dry',price:'$8'}] }
+      ]
+    },
+    wine: {
+      groups: [
+        { label:'Red', items:[{name:'Beau Charmois Cepage Ancestral',price:'$13 · $52'},{name:'Le Moulin Chapitre Chinon',price:'$15 · $60'},{name:'Kir-Yanni Naoussa Cuvée Villages',price:'$15 · $60'},{name:"Cardedu 'Praja' Monica Di Sardegna",price:'$52'},{name:'Vinyes Domenech Sotabosc',price:'$60'},{name:'Cottonera Contrada Etna Rosso',price:'$85'},{name:'Château Ollieux Romanis Souffle De Lune',price:'$85'},{name:'Joseph Drouhin Chorey-Les-Beaune',price:'$115'},{name:'Isole E Olena Chianti Classico',price:'$120'},{name:'Lopez De Heredia Vina Tondonia',price:'$130'},{name:'Arcanum Valadorna',price:'$150'},{name:'Pelassa Barolo',price:'$165'},{name:'Moueix Haut Roc Blanquant Saint-Emilion Grand Cru',price:'$175'}] },
+        { label:'White', items:[{name:'Vignobles Berthier Coteaux Du Giennois',price:'$14 · $56'},{name:'Frecciarossa Oltrepo Pavese',price:'$13 · $52'},{name:'Domaine Fichet Jeunes Vignes',price:'$14 · $56'},{name:'Gustave Lorentz Reserve',price:'$60'},{name:'Alexakis Assyrtiko',price:'$60'},{name:'Vignoble Du Reveur Pierres Sauvages',price:'$60'},{name:'Topette Chenin Blanc',price:'$62'},{name:'Quinta Da Pedra Graca Da Pedra',price:'$65'},{name:"Il Monticello 'Gropollo' Colli Di Luni Vermentino",price:'$65'},{name:"Domaine De La Pepier Muscadet 'Clos Des Briords'",price:'$70'},{name:'Herve Villemade Les Chataigniers',price:'$80'},{name:"Nals Margried 'Sirmain' Pinot Bianco",price:'$88'},{name:"Domaine Huet 'Le Haut Lieu' Sec Vouvray",price:'$115'}] },
+        { label:'Orange', items:[{name:'Domaine Glinavos Palkeokerisio',price:'$45'}] },
+        { label:'Rosé', items:[{name:'M. Chapoutier Belleruche',price:'$12 · $48'},{name:'Anne Pichon Sauvage Gris Montagne',price:'$55'},{name:"Pigoudet Rosé Première Coteaux D'Aix",price:'$60'}] },
+        { label:'Sparkling', items:[{name:'Montelvini Tullia Brut Prosecco Di Treviso',price:'$10'},{name:"Albert I Noya 'Petit Albet' Brut Reserva",price:'$14 · $58'},{name:'Avinyo Brut Reserva',price:'$65'},{name:"Lise Et Bertrand Jousset 'Exile Rose' Pet Nat",price:'$82'}] }
+      ]
+    },
+    liquor: {
+      groups: [
+        { label:'Bourbon', items:[{name:'Old Grand Dad Bonded',price:'$8'},{name:'Buffalo Trace',price:'$10'},{name:"Maker's Mark",price:'$10'},{name:'Eagle Rare',price:'$12'},{name:'Elijah Craig 1789',price:'$12'},{name:'Woodford Reserve',price:'$12'},{name:'Weller Special Reserve',price:'$16'},{name:'Weller 12 Year',price:'$18'},{name:'Weller Full Proof',price:'$22'},{name:"Blanton's Original",price:'$24'},{name:'Weller Antique 107',price:'$25'},{name:'Elmer T Lee',price:'$28'},{name:'Stagg Jr',price:'$28'},{name:"Booker's \"Barry's Batch\"",price:'$35'},{name:'Elijah Craig 18 Year',price:'$48'},{name:"Blanton's Gold",price:'$55'},{name:"Blanton's Straight from the Barrel",price:'$60'},{name:'Weller Single Barrel',price:'$60'},{name:'Old Fitzgerald 10 Year',price:'$75'}] },
+        { label:'Rye & Whiskey', items:[{name:'Rittenhouse Bonded Rye',price:'$8'},{name:'Crown Royal',price:'$9'},{name:'Jack Daniels',price:'$9'},{name:'Sazerac Rye',price:'$10'},{name:'Balcones Baby Blue',price:'$11'},{name:'Balcones Lineage',price:'$12'},{name:'Whistlepig 6 Year "Piggyback" Rye',price:'$12'},{name:'Balcones Bottled-in-Bond Rye',price:'$13'},{name:"Michter's Single Barrel Rye",price:'$15'},{name:"Balcones '1' Single Malt",price:'$16'},{name:"Angel's Envy Rye",price:'$23'},{name:'E.H. Taylor Rye',price:'$40'},{name:'Whistlepig Old World 12 Year Rye',price:'$50'},{name:"High West Midwinter Night's Dram",price:'$55'},{name:'Thomas H. Handy Sazerac',price:'$65'}] },
+        { label:'Scotch & Irish', items:[{name:'Famous Grouse',price:'$8'},{name:'Glenlivet 12 Year',price:'$15'},{name:'Laphroaig 10 Year',price:'$16'},{name:'Highland Park 12 Year',price:'$17'},{name:'Caol Ila 12 Year',price:'$26'},{name:'Lagavulin 16 Year',price:'$34'},{name:'Macallan 15 Year Double Cask',price:'$60'},{name:'Macallan Amber Meadow',price:'$60'},{name:'Jameson',price:'$9'},{name:'Redbreast 12 Year',price:'$18'},{name:'Redbreast 15 Year',price:'$36'}] },
+        { label:'Tequila & Mezcal', items:[{name:'Arette Blanco',price:'$8'},{name:'Arette Reposado',price:'$10'},{name:'Lalo Blanco',price:'$12'},{name:'El Tesoro Blanco',price:'$15'},{name:'Ocho Plata',price:'$15'},{name:'Ocho Reposado',price:'$18'},{name:'El Tesoro Reposado',price:'$20'},{name:'Fortaleza Blanco',price:'$22'},{name:'Fortaleza Reposado',price:'$25'},{name:'Jose Cuervo Reserva De La Familia Extra Anejo',price:'$80'},{name:'Ilegal Joven',price:'$10'},{name:'Del Maguey Vida Classico',price:'$10'},{name:'Lost Explorer Espadin',price:'$15'},{name:'Del Maguey Santo Domingo Albareadas',price:'$22'},{name:'Del Maguey Chichicapa',price:'$22'}] },
+        { label:'Brandy & Cognac', items:[{name:'Brandy Sainte Louise',price:'$10'},{name:'Camus Cognac',price:'$13'},{name:'Pierre Ferrand 1840 Cognac',price:'$13'},{name:'Cardenal Mendoza',price:'$18'},{name:'Grappa Di Sassicaia',price:'$54'}] },
+        { label:'Gin', items:[{name:'Citadelle',price:'$8'},{name:"Ford's",price:'$8'},{name:'Roku',price:'$9'},{name:'Plymouth',price:'$10'},{name:'St. George Terroir',price:'$10'},{name:'Tanqueray Ten',price:'$10'},{name:'Drumshanbo Sardinian Citrus',price:'$11'},{name:"Hendrick's",price:'$11'},{name:'The Botanist',price:'$12'},{name:'Empress',price:'$13'},{name:'Monkey 47',price:'$20'}] },
+        { label:'Rum', items:[{name:'Planteray 3 Star White',price:'$8'},{name:'Planteray Original Dark',price:'$8'},{name:'Probitas Foursquare White',price:'$8'},{name:'Smith & Cross Jamaican',price:'$9'},{name:'Planteray 5 Year',price:'$11'},{name:'Planteray Cut & Dry Coconut',price:'$11'},{name:'Planteray Stiggins Fancy Pineapple',price:'$11'}] },
+        { label:'Vodka', items:[{name:"Tito's",price:'$8'},{name:'Chopin',price:'$11'},{name:'Ketel One',price:'$11'},{name:'Grey Goose',price:'$12'},{name:'Belvedere',price:'$13'}] }
+      ]
+    }
+  }
+};
+/*DATA_END*/
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let editMode = false;
+let activeCard = null;
+let editingTabId = null;
+let editingIndex = null; // null = new card
+let activeTabId = menuData.tabs[0].id;
+
+// ─────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────
+function render() {
+  renderTabs();
+  renderSections();
+}
+
+function renderTabs() {
+  const nav = document.getElementById('tabNav');
+  nav.innerHTML = menuData.tabs.map(t =>
+    `<button class="tab-btn${t.id===activeTabId?' active':''}" onclick="switchTab('${t.id}')" ${t.label.includes('<br>') ? 'style="line-height:1.3;padding-top:8px;padding-bottom:8px;"' : ''}>${t.label}</button>`
+  ).join('');
+}
+
+function renderSections() {
+  const container = document.getElementById('sectionsContainer');
+  container.innerHTML = menuData.tabs.map(tab => {
+    const isActive = tab.id === activeTabId;
+    if (tab.simple) return renderSimpleSection(tab, isActive);
+    return renderCardSection(tab, isActive);
+  }).join('');
+}
+
+function renderCardSection(tab, isActive) {
+  const cards = menuData.cards[tab.id] || [];
+  const cardsHtml = cards.map((c, i) => renderCard(c, i, tab.id)).join('');
+  const addBtn = `<button class="add-card-btn" onclick="openNewCard('${tab.id}')"><span>＋</span> Add Dish</button>`;
+  return `<div class="section${isActive?' active':''}" id="tab-${tab.id}">
+    <div class="section-title">${tab.subtitle}</div>
+    <div class="menu-grid${tab.wide?' wide':''}">
+      ${cardsHtml}
+      ${addBtn}
+    </div>
+  </div>`;
+}
+
+function parseAllergens(str) {
+  // Parses "nuts:no,dairy:yes,gluten:no" → [{name:'nuts',removable:false}, ...]
+  // Also handles legacy plain "nuts,dairy" → removable defaults to false
+  if (!str) return [];
+  return str.split(',').map(a => {
+    a = a.trim();
+    if (!a) return null;
+    const [name, flag] = a.split(':');
+    return { name: name.trim(), removable: flag === 'yes' };
+  }).filter(Boolean);
+}
+
+function renderCard(c, i, tabId) {
+  const allergens = parseAllergens(c.allergens);
+  const badgesHtml = allergens.map(({name, removable}) =>
+    `<span class="a-badge ${name}">${name} <span class="a-removable-icon ${removable ? 'can-remove' : 'no-remove'}">${removable ? '✓' : '✕'}</span></span>`
+  ).join('');
+  const allergenSection = allergens.length ? `<div class="card-allergens">${badgesHtml}</div>` : '';
+  return `<div class="card${c.highlight?' highlight':''}" 
+    onclick="handleCardClick(this,'${tabId}',${i})"
+    data-tab="${tabId}" data-index="${i}">
+    <div class="card-edit-actions">
+      <button class="btn-edit-card" onclick="event.stopPropagation();openEditCard('${tabId}',${i})" title="Edit">✎</button>
+      <button class="btn-del-card" onclick="event.stopPropagation();deleteCard('${tabId}',${i})" title="Remove">🗑</button>
+    </div>
+    <div class="card-header">
+      <div class="card-name">${c.name}</div>
+      <div class="card-price">${c.price}</div>
+    </div>
+    <div class="card-ingredients">${c.ingredients.split(',').map(s=>s.trim()).join(' · ')}</div>
+    <div class="card-note">${c.description}</div>
+    ${allergenSection}
+  </div>`;
+}
+
+function renderSimpleSection(tab, isActive) {
+  const data = menuData.cards[tab.id];
+  if (!data || !data.groups) return '';
+  const groupsHtml = data.groups.map(g => `
+    <div class="sub-label">${g.label}</div>
+    <div class="beer-grid" style="margin-bottom:24px;">
+      ${g.items.map(item=>`<div class="beer-card"><div class="beer-name">${item.name}</div><div class="beer-price">${item.price}</div></div>`).join('')}
+    </div>`).join('');
+  return `<div class="section${isActive?' active':''}" id="tab-${tab.id}">
+    <div class="section-title">${tab.subtitle}</div>
+    ${groupsHtml}
+  </div>`;
+}
+
+// ─────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────
+function switchTab(id) {
+  activeTabId = id;
+  closePanel();
+  render();
+}
+
+// ─────────────────────────────────────────────
+// VIEW PANEL
+// ─────────────────────────────────────────────
+function handleCardClick(card, tabId, index) {
+  if (editMode) return;
+  const c = menuData.cards[tabId][index];
+  openPanel(card, c, tabId);
+}
+
+function openPanel(cardEl, c, category) {
+  if (activeCard) activeCard.classList.remove('active-card');
+  activeCard = cardEl;
+  cardEl.classList.add('active-card');
+  document.getElementById('panelCategory').textContent = menuData.tabs.find(t=>t.id===category)?.label || '';
+  document.getElementById('panelName').textContent = c.name;
+  document.getElementById('panelPrice').textContent = c.price;
+  const ingBox = document.getElementById('panelIngredients');
+  ingBox.innerHTML = c.ingredients.split(',').map(s=>`<span class="ingredient-tag">${s.trim()}</span>`).join('');
+  document.getElementById('panelDescription').textContent = c.description || 'Description coming soon.';
+  const allergens = parseAllergens(c.allergens);
+  const allergenBox = document.getElementById('panelAllergens');
+  if (allergens.length === 0) {
+    allergenBox.innerHTML = '<span class="no-allergens">No major allergens identified — confirm with kitchen for specific dietary needs.</span>';
+  } else {
+    allergenBox.innerHTML = allergens.map(({name, removable}) => `
+      <div class="panel-allergen ${name}">
+        <span class="pa-emoji">${ALLERGEN_EMOJI[name]||''}</span>
+        <span class="pa-name">${name}</span>
+        <span class="pa-removable ${removable ? 'can-remove' : 'no-remove'}">${removable ? '✓ Can remove' : '✕ Cannot remove'}</span>
+      </div>`).join('');
+  }
+  document.getElementById('slidePanel').classList.add('open');
+  document.getElementById('overlay').classList.add('visible');
+  document.getElementById('mainContainer').classList.add('panel-open');
+}
+
+function closePanel() {
+  document.getElementById('slidePanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('visible');
+  document.getElementById('mainContainer').classList.remove('panel-open');
+  if (activeCard) { activeCard.classList.remove('active-card'); activeCard = null; }
+}
+
+// ─────────────────────────────────────────────
+// EDIT MODE
+// ─────────────────────────────────────────────
+function toggleEditMode() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  const btn = document.getElementById('editToggle');
+  const hint = document.getElementById('editHint');
+  btn.classList.toggle('active', editMode);
+  btn.textContent = editMode ? '✓ Done Editing' : '✎ Edit Menu';
+  hint.classList.toggle('visible', editMode);
+  closePanel();
+}
+
+// ─────────────────────────────────────────────
+// EDIT MODAL
+// ─────────────────────────────────────────────
+// currentAllergens: Map of allergenName → boolean (true = removable)
+let currentAllergens = new Map();
+
+function buildAllergenToggles() {
+  const box = document.getElementById('allergenToggles');
+  box.innerHTML = ALLERGEN_LIST.map(a => {
+    const active = currentAllergens.has(a);
+    const removable = currentAllergens.get(a);
+    let cls = active ? (removable ? 'on removable' : 'on locked') : '';
+    let label = active ? (removable ? `${ALLERGEN_EMOJI[a]||''} ${a} ✓` : `${ALLERGEN_EMOJI[a]||''} ${a} ✕`) : `${ALLERGEN_EMOJI[a]||''} ${a}`;
+    return `<button type="button" class="allergen-toggle ${cls} ${a}" onclick="toggleAllergen('${a}',this)">${label}</button>`;
+  }).join('');
+}
+
+function toggleAllergen(a, btn) {
+  // Cycle: off → on+locked(✕) → on+removable(✓) → off
+  if (!currentAllergens.has(a)) {
+    currentAllergens.set(a, false); // locked
+  } else if (currentAllergens.get(a) === false) {
+    currentAllergens.set(a, true); // removable
+  } else {
+    currentAllergens.delete(a); // off
+  }
+  buildAllergenToggles();
+}
+
+function openEditCard(tabId, index) {
+  editingTabId = tabId;
+  editingIndex = index;
+  const c = menuData.cards[tabId][index];
+  document.getElementById('modalTitle').textContent = 'Edit Dish';
+  document.getElementById('fName').value = c.name;
+  document.getElementById('fPrice').value = c.price;
+  document.getElementById('fIngredients').value = c.ingredients;
+  document.getElementById('fDescription').value = c.description;
+  document.getElementById('fHighlight').value = c.highlight ? 'highlight' : '';
+  currentAllergens = new Map(parseAllergens(c.allergens).map(({name, removable}) => [name, removable]));
+  buildAllergenToggles();
+  document.getElementById('editModal').classList.add('open');
+}
+
+function openNewCard(tabId) {
+  editingTabId = tabId;
+  editingIndex = null;
+  document.getElementById('modalTitle').textContent = 'Add New Dish';
+  document.getElementById('fName').value = '';
+  document.getElementById('fPrice').value = '';
+  document.getElementById('fIngredients').value = '';
+  document.getElementById('fDescription').value = '';
+  document.getElementById('fHighlight').value = '';
+  currentAllergens = new Map();
+  buildAllergenToggles();
+  document.getElementById('editModal').classList.add('open');
+}
+
+function saveCard() {
+  const c = {
+    name: document.getElementById('fName').value.trim() || 'New Dish',
+    price: document.getElementById('fPrice').value.trim() || '',
+    ingredients: document.getElementById('fIngredients').value.trim() || '',
+    description: document.getElementById('fDescription').value.trim() || '',
+    allergens: [...currentAllergens.entries()].map(([name, removable]) => `${name}:${removable?'yes':'no'}`).join(','),
+    highlight: document.getElementById('fHighlight').value === 'highlight'
+  };
+  if (editingIndex === null) {
+    menuData.cards[editingTabId].push(c);
+  } else {
+    menuData.cards[editingTabId][editingIndex] = c;
+  }
+  closeModal();
+  saveToStorage();
+  render();
+}
+
+function deleteCard(tabId, index) {
+  if (!confirm(`Remove "${menuData.cards[tabId][index].name}"?`)) return;
+  menuData.cards[tabId].splice(index, 1);
+  saveToStorage();
+  render();
+}
+
+function closeModal() {
+  document.getElementById('editModal').classList.remove('open');
+}
+
+// ─────────────────────────────────────────────
+// LOCAL STORAGE — auto-save & restore
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'staffMenuData';
+
+function saveToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(menuData));
+  } catch(e) { console.warn('Storage save failed:', e); }
+}
+
+function loadFromStorage() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Merge saved cards into menuData — preserves structure from file
+      // but uses locally saved card data
+      menuData.cards = parsed.cards || menuData.cards;
+      menuData.tabs  = parsed.tabs  || menuData.tabs;
+    }
+  } catch(e) { console.warn('Storage load failed:', e); }
+}
+
+// ─────────────────────────────────────────────
+// CHECK FOR UPDATES — pulls latest data from GitHub
+// ─────────────────────────────────────────────
+// Set this to your GitHub Pages URL once deployed
+const REMOTE_URL = './index.html';
+
+async function checkForUpdates() {
+  const btn = document.getElementById('floatUpdateBtn');
+  if (btn) { btn.classList.add('loading'); btn.innerHTML = '↻ Checking...'; }
+  try {
+    const res = await fetch(REMOTE_URL + '?nocache=' + Date.now());
+    if (!res.ok) throw new Error('Network error');
+    const html = await res.text();
+    const start = html.indexOf('/*DATA_START*/');
+    const end   = html.indexOf('/*DATA_END*/');
+    if (start === -1 || end === -1) throw new Error('Markers not found');
+    const dataBlock = html.slice(start + 14, end).trim();
+    const jsonStr = dataBlock.replace(/^let menuData\s*=\s*/, '').replace(/;\s*$/, '');
+    const remoteData = JSON.parse(jsonStr);
+    if (!remoteData.cards) throw new Error('Invalid data');
+    menuData.cards = remoteData.cards;
+    menuData.tabs  = remoteData.tabs || menuData.tabs;
+    saveToStorage();
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    }
+    showToast('Menu updated ✓ — reloading...');
+    setTimeout(() => location.reload(true), 1200);
+  } catch(e) {
+    if (btn) { btn.classList.remove('loading'); btn.innerHTML = '↻ Check for Updates'; }
+    showToast('Already up to date — or offline');
+    console.warn('Update check failed:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// EXPORT FOR GITHUB — bakes current data into index.html for upload
+// ─────────────────────────────────────────────
+function exportForGitHub() {
+  // Temporarily strip edit mode so it doesn't get baked into the export
+  const wasEditing = editMode;
+  if (wasEditing) {
+    document.body.classList.remove('edit-mode');
+    document.getElementById('editBar').style.display = 'none';
+  }
+
+  const src = document.documentElement.outerHTML;
+  const dataStr = JSON.stringify(menuData);
+  const START = '/*DATA_START*/';
+  const END   = '/*DATA_END*/';
+  const startIdx = src.indexOf(START);
+  const endIdx   = src.indexOf(END);
+
+  // Restore edit mode state after capture
+  if (wasEditing) {
+    document.body.classList.add('edit-mode');
+    document.getElementById('editBar').style.display = 'flex';
+  }
+
+  if (startIdx === -1 || endIdx === -1) {
+    alert('Export markers not found — please report this bug.');
+    return;
+  }
+  const updated =
+    src.slice(0, startIdx + START.length) +
+    `\nlet menuData = ${dataStr};\n` +
+    src.slice(endIdx);
+  const blob = new Blob([updated], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'index.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Saved — upload index.html to GitHub ✓');
+}
+
+// ─────────────────────────────────────────────
+// TOAST NOTIFICATION
+// ─────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('saveToast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ─────────────────────────────────────────────
+// THEME SYSTEM
+// ─────────────────────────────────────────────
+const THEME_KEY = 'staffMenuTheme';
+
+const THEMES = [
+  { id:'',        name:'Crimson',     dots:['#0d0b0b','#9b2c2c','#f0e8e8'], bg:'#0d0b0b', accent:'#9b2c2c', text:'#f0e8e8' },
+  { id:'navy',    name:'Ocean',       dots:['#070d14','#1e5f8a','#ddeeff'], bg:'#070d14', accent:'#1e5f8a', text:'#ddeeff' },
+  { id:'forest',  name:'Forest',      dots:['#080d08','#2d6e3a','#d8edd8'], bg:'#080d08', accent:'#2d6e3a', text:'#d8edd8' },
+  { id:'void',    name:'Void',        dots:['#000000','#444444','#e0e0e0'], bg:'#000000', accent:'#444444', text:'#e0e0e0' },
+  { id:'amber',   name:'Candlelight', dots:['#0d0900','#a06800','#f5e8c0'], bg:'#0d0900', accent:'#a06800', text:'#f5e8c0' },
+  { id:'vintage', name:'Parchment',   dots:['#f5f0e8','#c4a882','#2a1a10'], bg:'#f5f0e8', accent:'#6b2030', text:'#2a1a10' },
+  { id:'rose',    name:'Dark Rose',   dots:['#0e0608','#8b2a4a','#f5dde5'], bg:'#0e0608', accent:'#8b2a4a', text:'#f5dde5' },
+  { id:'purple',  name:'Midnight',    dots:['#080610','#5b2d8a','#e8dcf5'], bg:'#080610', accent:'#5b2d8a', text:'#e8dcf5' },
+  { id:'ember',   name:'Ember',       dots:['#0e0700','#c45a00','#f5e0c0'], bg:'#0e0700', accent:'#c45a00', text:'#f5e0c0' },
+  { id:'storm',   name:'Storm',       dots:['#060a10','#2a5080','#ccddef'], bg:'#060a10', accent:'#2a5080', text:'#ccddef' },
+  { id:'blush',   name:'Blush',       dots:['#f7f0f2','#c4a0b0','#2a1020'], bg:'#f7f0f2', accent:'#8b3a5a', text:'#2a1020' },
+  { id:'teal',    name:'Ink',         dots:['#040e0e','#1a7070','#c8eeee'], bg:'#040e0e', accent:'#1a7070', text:'#c8eeee' },
+];
+
+let currentThemeId = '';
+let previewThemeId = null;
+
+function applyTheme(id) {
+  THEMES.forEach(t => { if (t.id) document.body.classList.remove('theme-' + t.id); });
+  if (id) document.body.classList.add('theme-' + id);
+  currentThemeId = id;
+}
+
+function loadTheme() {
+  const saved = localStorage.getItem(THEME_KEY) || '';
+  applyTheme(saved);
+}
+
+function saveTheme(id) {
+  localStorage.setItem(THEME_KEY, id);
+}
+
+function openThemePicker() {
+  previewThemeId = currentThemeId;
+  renderThemeGrid();
+  document.getElementById('themeModal').classList.add('open');
+}
+
+function closeThemePicker() {
+  document.getElementById('themeModal').classList.remove('open');
+}
+
+function renderThemeGrid() {
+  const grid = document.getElementById('themeGrid');
+  grid.innerHTML = THEMES.map(t => {
+    const isPreviewing = t.id === previewThemeId;
+    const isActive = t.id === currentThemeId;
+    return `<div class="theme-swatch${isPreviewing?' previewing':''}${isActive?' active-theme':''}"
+      style="background:${t.bg}; border-color:${isPreviewing ? t.text : 'transparent'}"
+      onclick="previewTheme('${t.id}')">
+      <div class="theme-swatch-dots">
+        ${t.dots.map(d=>`<div class="theme-swatch-dot" style="background:${d}"></div>`).join('')}
+      </div>
+      <div class="theme-swatch-name" style="color:${t.text}">${t.name}</div>
+    </div>`;
+  }).join('');
+}
+
+function previewTheme(id) {
+  previewThemeId = id;
+  applyTheme(id); // live preview
+  renderThemeGrid();
+}
+
+function confirmTheme() {
+  saveTheme(previewThemeId);
+  currentThemeId = previewThemeId;
+  closeThemePicker();
+  showToast('Theme applied ✓');
+}
+
+function cancelTheme() {
+  applyTheme(currentThemeId); // revert preview
+  previewThemeId = currentThemeId;
+  closeThemePicker();
+}
+const PW_KEY = 'staffMenuPassword';
+const DEFAULT_PW = '1234';
+
+function getPassword() {
+  return localStorage.getItem(PW_KEY) || DEFAULT_PW;
+}
+
+function openPasswordModal() {
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwError').style.opacity = 0;
+  document.getElementById('pwInput').classList.remove('shake');
+  document.getElementById('pwModal').classList.add('open');
+  setTimeout(() => document.getElementById('pwInput').focus(), 100);
+}
+
+function closePwModal() {
+  document.getElementById('pwModal').classList.remove('open');
+}
+
+function submitPassword() {
+  const input = document.getElementById('pwInput').value;
+  if (input === getPassword()) {
+    closePwModal();
+    openSettings();
+  } else {
+    const el = document.getElementById('pwInput');
+    el.classList.remove('shake');
+    void el.offsetWidth; // reflow to restart animation
+    el.classList.add('shake');
+    document.getElementById('pwError').style.opacity = 1;
+    el.value = '';
+  }
+}
+
+function openSettings() {
+  // Sync edit button label
+  document.getElementById('settingsEditBtn').textContent =
+    editMode ? '✓ Editing On' : 'Enable Editing';
+  document.getElementById('settingsPanel').classList.add('open');
+}
+
+function closeSettings() {
+  document.getElementById('settingsPanel').classList.remove('open');
+  closeChangePassword();
+}
+
+function toggleEditFromSettings() {
+  closeSettings();
+  // Show edit bar and toggle
+  document.getElementById('editBar').style.display = 'flex';
+  if (!editMode) {
+    toggleEditMode();
+  }
+}
+
+// ─────────────────────────────────────────────
+// CHANGE PASSWORD
+// ─────────────────────────────────────────────
+function openChangePassword() {
+  document.getElementById('newPw1').value = '';
+  document.getElementById('newPw2').value = '';
+  document.getElementById('changePwError').style.opacity = 0;
+  document.getElementById('changePwForm').style.display = 'flex';
+}
+
+function closeChangePassword() {
+  document.getElementById('changePwForm').style.display = 'none';
+}
+
+function saveNewPassword() {
+  const p1 = document.getElementById('newPw1').value.trim();
+  const p2 = document.getElementById('newPw2').value.trim();
+  if (!p1) {
+    document.getElementById('changePwError').textContent = 'Password cannot be empty';
+    document.getElementById('changePwError').style.opacity = 1;
+    return;
+  }
+  if (p1 !== p2) {
+    document.getElementById('changePwError').textContent = 'Passwords do not match';
+    document.getElementById('changePwError').style.opacity = 1;
+    return;
+  }
+  localStorage.setItem(PW_KEY, p1);
+  closeChangePassword();
+  showToast('Password updated ✓');
+}
+
+// ─────────────────────────────────────────────
+// RESET LOCAL DATA
+// ─────────────────────────────────────────────
+function resetLocalData() {
+  if (!confirm('Reset all local data? This will revert the menu to the last version pushed to GitHub.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  closeSettings();
+  showToast('Local data cleared — reloading...');
+  setTimeout(() => location.reload(true), 1200);
+}
+
+// Also hide edit bar when done editing
+const _origToggle = toggleEditMode;
+toggleEditMode = function() {
+  _origToggle();
+  if (!editMode) {
+    document.getElementById('editBar').style.display = 'none';
+  }
+};
+loadTheme();
+loadFromStorage();
+render();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closePanel(); closeModal(); closePwModal(); closeSettings(); cancelTheme(); }
+});
+
+// Register service worker for offline/PWA support
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(e => console.warn('SW reg failed:', e));
+}
+</script>
+</body>
+</html>
